@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نيالا باي | Nyala Pay</title>
+    <!-- خط جوجول للتصميم العصري -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3c72;
+            --secondary-color: #2a5298;
+            --accent-color: #00f2fe;
+            --success-color: #00b894;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-body: #f5f6fa;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* حاوية التطبيق الرئيسية */
+        .app-container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* الهيدر */
+        header {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .logo-area h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-area span {
+            color: var(--accent-color);
+        }
+
+        .user-profile {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .user-profile:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* محتوى التطبيق الداخلي */
+        .main-content {
+            padding: 20px;
+        }
+
+        /* بطاقة المحفظة الفيزيائية/الرقمية */
+        .wallet-card {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            border-radius: 20px;
+            padding: 25px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .wallet-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-type {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+
+        .balance-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .currency {
+            font-size: 1rem;
+            color: var(--accent-color);
+        }
+
+        .card-number {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        /* أزرار العمليات السريعة */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 110px);
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .action-btn {
+            background: #fff;
+            border: 1px solid #edf2f7;
+            border-radius: 16px;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .action-btn i {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .action-btn span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .action-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .action-btn:hover i, .action-btn:hover span {
+            color: #fff;
+        }
+
+        .action-btn:hover i {
+            transform: scale(1.1);
+        }
+
+        /* قسم العمليات الأخيرة */
+        .transactions-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .transactions-section h3 a {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .transaction-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .transaction-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 15px;
+            background: #fdfdfd;
+            border: 1px solid #f1f2f6;
+            border-radius: 14px;
+            transition: 0.2s;
+        }
+
+        .transaction-item:hover {
+            background: #f8f9fa;
+        }
+
+        .tx-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tx-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .tx-icon.receive {
+            background: rgba(0, 184, 148, 0.1);
+            color: var(--success-color);
+        }
+
+        .tx-icon.send {
+            background: rgba(214, 48, 49, 0.1);
+            color: #d63031;
+        }
+
+        .tx-details p {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .tx-details span {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .tx-amount {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .tx-amount.positive { color: var(--success-color); }
+        .tx-amount.negative { color: #d63031; }
+
+        /* نافذة تفاعلية منبثقة (Modal) لتأكيد الإرسال */
+        .modal {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            padding: 30px 20px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+            transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+
+        .modal.active {
+            bottom: 0;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            z-index: 5;
+            border-radius: 30px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .modal-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .modal-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- طبقة التعتيم الخلفية للمودال -->
+        <div class="modal-overlay" id="overlay"></div>
+
+        <!-- الهيدر الرئيسي -->
+        <header>
+            <div class="logo-area">
+                <h1>نيالا <span>باي</span></h1>
+            </div>
+            <div class="user-profile" title="الملف الشخصي">
+                <i class="fa-regular fa-user"></i>
+            </div>
+        </header>
+
+        <!-- المحتوى الداخلي -->
+        <div class="main-content">
+            
+            <!-- بطاقة المحفظة -->
+            <div class="wallet-card">
+                <div class="card-type">رصيد المحفظة الحالي</div>
+                <div class="balance-amount">
+                    <span id="balance">145,500</span>
+                    <span class="currency">SDG</span>
+                </div>
+                <div class="card-number">•••• •••• •••• 2468</div>
+            </div>
+
+            <!-- العمليات السريعة -->
+            <div class="quick-actions">
+                <div class="action-btn" id="sendBtn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>إرسال</span>
+                </div>
+                <div class="action-btn" onclick="alert('ميزة الاستقبال عبر الـ QR قريباً!')">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>استقبال</span>
+                </div>
+                <div class="action-btn" onclick="alert('شحن الرصيد متوفر عبر الحسابات البنكية')">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>شحن</span>
+                </div>
+            </div>
+
+            <!-- العمليات الأخيرة -->
+            <div class="transactions-section">
+                <h3>
+                    <span>العمليات الأخيرة</span>
+                    <a href="#" onclick="alert('عرض كل العمليات')">رؤية الكل</a>
+                </h3>
+                
+                <div class="transaction-list" id="txList">
+                    <!-- عملية 1 -->
+                    <div class="transaction-item">
+                        <div class="tx-info">
+                            <div class="tx-icon receive">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </div>
+                            <div class="tx-details">
+                                <p>عبدالرحمن أحمد</p>
+                                <span>اليوم، 02:30 م</span>
+                            </div>
+                        </div>
+                        <div class="tx-amount positive">+15,000 SDG</div>
+                    </div>
+
+                    <!-- عملية 2 -->
+                    <div class="transaction-item">
+                        <div class="tx-info">
+                            <div class="tx-icon send">
+                                <i class="fa-solid fa-arrow-up"></i>
+                            </div>
+                            <div class="tx-details">
+                                <p>شحن رصيد زين</p>
+                                <span>أمس، 08:15 م</span>
+                            </div>
+                        </div>
+                        <div class="tx-amount negative">-3,500 SDG</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- نافذة الإرسال السريع (تظهر عند الضغط على إرسال) -->
+        <div class="modal" id="sendModal">
+            <span class="close-modal" id="closeBtn">&times;</span>
+            <h4>تحويل أموال سريع</h4>
+            <div class="input-group">
+                <input type="text" id="phoneInput" placeholder="رقم الهاتف أو المعرّف">
+            </div>
+            <div class="input-group">
+                <input type="number" id="amountInput" placeholder="المبلغ المراد تحويله">
+            </div>
+            <button class="modal-btn" id="confirmSend">تأكيد وإرسال طوالي</button>
+        </div>
+
+    </div>
+
+    <!-- التفاعل البرمجي بـ Vanilla JavaScript -->
+    <script>
+        const sendBtn = document.getElementById('sendBtn');
+        const sendModal = document.getElementById('sendModal');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.getElementById('closeBtn');
+        const confirmSend = document.getElementById('confirmSend');
+        
+        const balanceEl = document.getElementById('balance');
+        const txList = document.getElementById('txList');
+
+        // فتح المودال
+        sendBtn.addEventListener('click', () => {
+            sendModal.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        // إغلاق المودال
+        const closeModalFn = () => {
+            sendModal.classList.remove('active');
+            overlay.classList.remove('active');
+            document.getElementById('phoneInput').value = '';
+            document.getElementById('amountInput').value = '';
+        };
+
+        closeBtn.addEventListener('click', closeModalFn);
+        overlay.addEventListener('click', closeModalFn);
+
+        // تنفيذ عملية تحويل وهمية ديناميكية
+        confirmSend.addEventListener('click', () => {
+            const phone = document.getElementById('phoneInput').value;
+            const amount = parseFloat(document.getElementById('amountInput').value);
+            let currentBalance = parseFloat(balanceEl.innerText.replace(/,/g, ''));
+
+            if(!phone || !amount || amount <= 0) {
+                alert('الرجاء إدخال بيانات صحيحة');
+                return;
+            }
+
+            if(amount > currentBalance) {
+                alert('العفو، الرصيد غير كافي لهذه العملية!');
+                return;
+            }
+
+            // خصم المبلغ وتحديث الواجهة برقم منسق
+            currentBalance -= amount;
+            balanceEl.innerText = currentBalance.toLocaleString();
+
+            // إضافة العملية الجديدة لأعلى القائمة ديناميكياً
+            const newTx = document.createElement('div');
+            newTx.className = 'transaction-item';
+            newTx.innerHTML = `
+                <div class="tx-info">
+                    <div class="tx-icon send">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </div>
+                    <div class="tx-details">
+                        <p>تحويل إلى ${phone}</p>
+                        <span>الآن</span>
+                    </div>
+                </div>
+                <div class="tx-amount negative">-${amount.toLocaleString()} SDG</div>
+            `;
+            
+            txList.insertBefore(newTx, txList.firstChild);
+
+            alert(`تم تحويل ${amount} SDG بنجاح إلى ${phone}`);
+            closeModalFn();
+        });
+    </script>
+</body>
+</html>
