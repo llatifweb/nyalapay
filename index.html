@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نيالا باي | Nyala Pay - المنصة الرقمية المعتمدة</title>
+    
+    <!-- خط Cairo من جوجل المتناسق مع هوية الموقع -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { 
+            font-family: 'Cairo', sans-serif; 
+        }
+        
+        /* حركة طفو انسيابية للشعار للحفاظ على ثبات الأبعاد وقرائية النصوص */
+        @keyframes smoothFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate-logo {
+            animation: smoothFloat 5s infinite ease-in-out;
+        }
+
+        .custom-glow:hover {
+            box-shadow: 0px 0px 30px rgba(56, 189, 248, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-[#0B111E] text-slate-200 min-h-screen antialiased">
+
+    <!-- 1. شريط التنقل العلوي (Navbar) -->
+    <header class="border-b border-slate-800/60 bg-[#0B111E]/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            
+            <!-- الهوية البصرية اللفظية متناسقة مع ألوان الشعار -->
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gradient-to-tr from-[#38BDF8] to-[#34D399] rounded-lg flex items-center justify-center font-black text-slate-950 text-lg shadow-md shadow-cyan-500/10">N</div>
+                <span class="text-xl font-black text-white">Nyala <span class="text-[#38BDF8]">Pay</span></span>
+            </div>
+            
+            <!-- القوائم الرئيسية -->
+            <nav class="hidden md:flex space-x-8 space-x-reverse text-sm font-medium text-slate-400">
+                <a href="#hero" class="hover:text-white transition">الرئيسية</a>
+                <a href="#apps" class="hover:text-white transition">التطبيقات والألعاب</a>
+                <a href="#payments" class="hover:text-white transition">وسائل الدفع</a>
+                <a href="#simulator" class="hover:text-white transition">محاكي التفعيل</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="#simulator" class="bg-gradient-to-r from-[#34D399] to-[#38BDF8] hover:opacity-95 text-slate-950 font-bold px-5 py-2 rounded-xl text-sm transition shadow-lg shadow-cyan-500/10">التفعيل الفوري</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. الواجهة الترحيبية (Hero Section) -->
+    <section id="hero" class="relative pt-8 pb-16 md:pt-20 md:pb-24 overflow-hidden">
+        <div class="absolute top-20 right-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
+            
+            <!-- القسم الأيمن: العبارات التسويقية والنصوص -->
+            <div class="space-y-6 text-center lg:text-right">
+                <span class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/20 text-[#38BDF8] px-4 py-1.5 rounded-full text-xs font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-[#34D399] animate-pulse"></span>
+                    البوابة الرسمية والآمنة للمنطقة
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight">
+                    منظومة الدفع وتفعيل <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-teal-400 to-[#34D399]">الاشتراكات الفورية</span>
+                </h1>
+                <p class="text-slate-400 text-lg font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    جسر رقمي آمن يربطك بالخدمات العالمية والمحلية. اشحن رصيدك عبر التطبيقات المصرفية أو شبكة وكلائنا الميدانيين، وفَعّل ألعابك وتطبيقاتك المفضلة فوراً.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                    <a href="#simulator" class="bg-gradient-to-r from-[#38BDF8] to-[#34D399] text-slate-950 font-black px-8 py-3.5 rounded-xl transition shadow-md hover:opacity-90">ابدأ الشحن الآن</a>
+                    <a href="#apps" class="border border-slate-700 hover:border-slate-500 text-white font-semibold px-8 py-3.5 rounded-xl transition">تصفح الخدمات المدعومة</a>
+                </div>
+            </div>
+            
+            <!-- القسم الأيسر: دمج الشعار الرسمي المختار بكل تفاصيله -->
+            <div class="flex justify-center relative">
+                <!-- توهج خلفي ناعم يعزز بروز الشعار المعروض -->
+                <div class="absolute w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="animate-logo w-full max-w-md md:max-w-lg select-none">
+                    <img src="watermarked_img_6508955193705277768.png" alt="Nyala Pay Official Logo" class="w-full h-auto object-contain drop-shadow-[0_0_50px_rgba(56,189,248,0.15)]">
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- 3. قسم التطبيقات والمنصات المدعومة -->
+    <section id="apps" class="py-16 bg-[#0E1626] border-y border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white">التطبيقات المتاحة لعمليات الشراء</h2>
+                <p class="text-slate-400 text-sm">نوفر أكواد شحن وتفعيل مباشر وفوري لأكثر التطبيقات والخدمات الرقمية طلباً.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- الألعاب -->
+                <div class="bg-[#121B2E] border border-slate-800/80 p-6 rounded-2xl space-y-3">
+                    <div class="text-2xl">🎮</div>
+                    <h3 class="font-bold text-white">شحن الألعاب الإلكترونية</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">جواهر فري فاير (Free Fire)، شدات ببجي (PUBG UC)، بطاقات بلايستيشن والبطاقات العالمية المتنوعة.</p>
+                </div>
+                <!-- الترفيه -->
+                <div class="bg-[#121B2E] border border-slate-800/80 p-6 rounded-2xl space-y-3">
+                    <div class="text-2xl">📺</div>
+                    <h3 class="font-bold text-white">اشتراكات البث والترفيه</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">تفعيل حسابات نتفليكس (Netflix)، باقات شاهد VIP المتقدمة، وبطاقات الترفيه الصوتي العالمي والمحلي.</p>
+                </div>
+                <!-- الذكاء الاصطناعي -->
+                <div class="bg-[#121B2E] border border-slate-800/80 p-6 rounded-2xl space-y-3">
+                    <div class="text-2xl">🤖</div>
+                    <h3 class="font-bold text-white">الإنتاجية والذكاء الاصطناعي</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">ترقية وتفعيل حسابات ChatGPT Plus، اشتراكات كانفا برو (Canva)، وتجديد حزم الاستضافات وسيرفرات الويب.</p>
+                </div>
+                <!-- المتاجر -->
+                <div class="bg-[#121B2E] border border-slate-800/80 p-6 rounded-2xl space-y-3">
+                    <div class="text-2xl">🛍️</div>
+                    <h3 class="font-bold text-white">بطاقات المتاجر العامة</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">بطاقات شحن وتعبئة حسابات جوجل بلاي (Google Play)، متاجر آبل (iTunes)، وإصدار كروت الدفع الافتراضية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. قسم وسائل الدفع والوسائط المتاحة -->
+    <section id="payments" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white">وسائل الشحن والوسائط المدعومة</h2>
+                <p class="text-slate-400 text-sm">صممنا خيارات مرنة تتلائم مع البنية المالية لتسهيل الشحن الرقمي والنقدي الفوري.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- الدفع البنكي -->
+                <div class="bg-gradient-to-b from-[#11192A] to-[#0B111E] border border-slate-800 p-6 rounded-2xl relative overflow-hidden custom-glow transition-all">
+                    <div class="absolute top-0 left-0 bg-[#38BDF8] text-slate-950 text-[10px] font-bold px-2.5 py-0.5 rounded-br-lg">آلي وسريع</div>
+                    <h4 class="font-bold text-white mb-3 flex items-center gap-2"><span>📱</span> التحويل المصرفي الرقمي</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">شحن تلقائي للمحفظة عبر ربط البوابة بالتطبيقات المصرفية المعتمدة (مثل تطبيق بنكك والتحويل السريع عبر كود الـ QR) لتأكيد الرصيد في دقيقة.</p>
+                </div>
+                <!-- محفظة الاتصالات -->
+                <div class="bg-gradient-to-b from-[#11192A] to-[#0B111E] border border-slate-800 p-6 rounded-2xl custom-glow transition-all">
+                    <h4 class="font-bold text-white mb-3 flex items-center gap-2"><span>⚡</span> رصيد شبكات الاتصال</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">دعم كامل لعمليات تحويل الأرصدة والمحافظ المصغرة لشبكات الاتصالات العاملة بالمنطقة، مما يسهل تفعيل الباقات الفردية بدون حساب بنكي.</p>
+                </div>
+                <!-- الوكلاء الميدانيين -->
+                <div class="bg-gradient-to-b from-[#11192A] to-[#0B111E] border border-slate-800 p-6 rounded-2xl relative overflow-hidden custom-glow transition-all">
+                    <div class="absolute top-0 left-0 bg-[#34D399] text-slate-950 text-[10px] font-bold px-2.5 py-0.5 rounded-br-lg">نقدي</div>
+                    <h4 class="font-bold text-white mb-3 flex items-center gap-2"><span>🏪</span> شبكة وكلاء نيالا المحليين</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">بإمكانك زيارة أقرب موزع أو وكيل ميداني معتمد لدينا في أحياء ومراكز مدينة نيالا لتسليم المبلغ كاش وتعبئة رصيد حسابك على البوابة فورياً.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. محاكي التفعيل والطلب البرمجي التفاعلي -->
+    <section id="simulator" class="py-16 bg-[#0E1626] border-t border-slate-800/40">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="bg-[#121B2E] border border-slate-800/80 rounded-2xl p-6 md:p-8 shadow-xl space-y-6">
+                
+                <div class="text-right space-y-1">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2"><span>⚙️</span> محاكي بوابة الدفع التجريبي</h3>
+                    <p class="text-slate-400 text-xs">اختر باقتك وحدد وسيلة الدفع لتجربة النظام البرمجي الآلي للبوابة.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <!-- نموذج الإدخال -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">1. اختر الخدمة أو باقة الشحن:</label>
+                            <select id="appSelect" class="w-full bg-[#18233C] border border-slate-700 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-cyan-500 text-xs">
+                                <option value="5000" data-name="جواهر فري فاير (باقة 1000 جوهرة)">جواهر فري فاير 🔥 (5,000 SDG)</option>
+                                <option value="4200" data-name="شدات ببجي موبايل (باقة 660 UC)">شدات ببجي موبايل 🪂 (4,200 SDG)</option>
+                                <option value="7500" data-name="اشتراك نتفليكس شهر كامل">اشتراك نتفليكس بريميوم 🎬 (7,500 SDG)</option>
+                                <option value="15000" data-name="ترقية حساب ChatGPT Plus">اشتراك ذكاء اصطناعي ChatGPT برو 🤖 (15,000 SDG)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">2. وسيلة الدفع أو الوسيط المالي:</label>
+                            <select class="w-full bg-[#18233C] border border-slate-700 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-cyan-500 text-xs">
+                                <option>التحويل المصرفي المباشر الرقمي (تطبيق بنكك)</option>
+                                <option>رصيد المحفظة الإلكترونية لشبكة الاتصال</option>
+                                <option>الدفع نقداً للموزع/الوكيل المحلي في نيالا</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1.5">3. معرف الحساب (ID / بريد إلكتروني):</label>
+                            <input type="text" placeholder="مثال: معرف اللاعب أو بريد الاشتراك الخاص بك" class="w-full bg-[#18233C] border border-slate-700 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-cyan-500 text-xs text-right">
+                        </div>
+                    </div>
+
+                    <!-- الفاتورة الديناميكية وزر التشغيل -->
+                    <div class="bg-[#18233C]/40 border border-slate-700/60 rounded-xl p-5 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-bold text-slate-400 border-b border-slate-700 pb-1.5">حالة الحركة المالية الحية:</h4>
+                            <div class="flex justify-between text-xs"><span class="text-slate-400">الخدمة:</span> <span id="summaryName" class="text-white font-medium">جواهر فري فاير (باقة 1000 جوهرة)</span></div>
+                            <div class="flex justify-between text-xs"><span class="text-slate-400">وقت التفعيل التقريبي:</span> <span class="text-[#34D399] font-medium">آلي فوري (أقل من دقيقة)</span></div>
+                            <div class="flex justify-between text-xs"><span class="text-slate-400">رسوم بوابة العمليات:</span> <span class="text-slate-500 font-mono">0.00 SDG</span></div>
+                        </div>
+
+                        <div class="border-t border-slate-700 pt-2 flex justify-between items-center">
+                            <span class="text-xs font-bold text-white">الإجمالي المطلوب سداده:</span>
+                            <span id="summaryPrice" class="text-xl font-black text-[#38BDF8] font-mono">5000 SDG</span>
+                        </div>
+
+                        <button id="btnSimulate" class="w-full bg-gradient-to-r from-[#38BDF8] to-[#34D399] text-slate-950 font-black py-2.5 rounded-xl text-sm shadow-md hover:opacity-95 transition active:scale-[0.98]">
+                            تأكيد المعاملة وإرسال أمر التفعيل 🚀
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. تذييل الصفحة (Footer) -->
+    <footer class="border-t border-slate-900 bg-[#070B14] py-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 space-y-1.5">
+            <p class="font-medium text-slate-400 text-xs">منصة نيالا باي (Nyala Pay) للمدفوعات الرقمية والحلول التقنية المتكاملة.</p>
+            <p>&copy; 2026 جميع الحقوق محفوظة لـ عبد اللطيف حماد.</p>
+        </div>
+    </footer>
+
+    <!-- شفرة الجافا سكريبت التفاعلية لإدارة الفاتورة الحية والعمليات المحاكية -->
+    <script>
+        const appSelect = document.getElementById('appSelect');
+        const summaryName = document.getElementById('summaryName');
+        const summaryPrice = document.getElementById('summaryPrice');
+        const btnSimulate = document.getElementById('btnSimulate');
+
+        // استماع لحدث تغيير الخدمة وتحديث بيانات الفاتورة تلقائياً
+        appSelect.addEventListener('change', function() {
+            const selectedOption = appSelect.options[appSelect.selectedIndex];
+            const price = selectedOption.value;
+            const name = selectedOption.getAttribute('data-name');
+            
+            summaryPrice.innerText = price + " SDG";
+            summaryName.innerText = name;
+        });
+
+        // تنفيذ محاكاة تسلسل الطلب البرمجي عبر البوابة
+        btnSimulate.addEventListener('click', function() {
+            btnSimulate.innerText = "جاري معالجة إشعار الدفع وربط الـ API...";
+            btnSimulate.disabled = true;
+            
+            setTimeout(() => {
+                alert('🎉 تم تأكيد العملية الرقمية بنجاح!\nاستقبلت بوابة Nyala Pay إشعار الحوالة بنجاح، وتم تسليم أمر الشحن الفوري والتفعيل الآلي لحساب الخدمة المحدد.');
+                btnSimulate.innerText = "تأكيد المعاملة وإرسال أمر التفعيل 🚀";
+                btnSimulate.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
